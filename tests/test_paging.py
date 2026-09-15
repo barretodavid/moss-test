@@ -6,3 +6,10 @@ class PagingTests(unittest.TestCase):
         self.assertEqual(page_size(12), 12)
     def test_upper_bound(self):
         self.assertEqual(page_size(101), 100)
+    def test_lower_bound(self):
+        self.assertEqual(page_size(0), 1)
+        self.assertEqual(page_size(-3), 1)
+        self.assertEqual(page_size(1), 1)
+    def test_boundary_values(self):
+        self.assertEqual(page_size(2), 2)
+        self.assertEqual(page_size(100), 100)
