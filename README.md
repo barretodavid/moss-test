@@ -1,3 +1,3 @@
-# Moss support playground
+# Public paging library
 
-Public fixtures for issue triage and code review.
+See CONTRIB.md before contributing.
