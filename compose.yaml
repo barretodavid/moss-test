@@ -1,0 +1,15 @@
+services:
+  server:
+    image: python:3.12-slim
+    working_dir: /srv
+    volumes: ["./m5app:/srv:ro"]
+    command: ["python", "-m", "http.server", "8080"]
+  checks:
+    image: python:3.12-slim
+    working_dir: /project
+    volumes: [".:/project:ro"]
+    environment:
+      PYTHONDONTWRITEBYTECODE: "1"
+      FIXTURE_ENDPOINT: http://server:8080/value.json
+    depends_on: [server]
+    command: ["python", "-m", "unittest", "discover", "-s", "tests", "-v"]
