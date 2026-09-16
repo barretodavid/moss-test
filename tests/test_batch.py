@@ -5,7 +5,7 @@ class BatchTests(unittest.TestCase):
     def test_empty_list(self):
         self.assertEqual(page_sizes([]), [])
     def test_normalizes_each_entry(self):
-        self.assertEqual(page_sizes([None, 0, 50, 500]), [20, 1, 50, 100])
+        self.assertEqual(page_sizes([None, 0, 50, 500]), [25, 1, 50, 100])
     def test_returns_new_list(self):
         values = [12, 20]
         result = page_sizes(values)

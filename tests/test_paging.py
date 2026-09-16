@@ -16,6 +16,7 @@ class PagingTests(unittest.TestCase):
         self.assertEqual(page_size(MAX_PAGE_SIZE), MAX_PAGE_SIZE)
     def test_none_returns_default(self):
         self.assertEqual(page_size(None), DEFAULT_PAGE_SIZE)
+        self.assertEqual(DEFAULT_PAGE_SIZE, 25)
     def test_non_integer_raises(self):
         with self.assertRaises(TypeError):
             page_size(2.5)
